@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Helmand & Co Limited - Building excellence through innovation, integrity, and quality solutions across construction, technology, and multiple industries."
+		/>
 		<link rel="icon" href="./helmand-logo-white.png" type="image/png" />
 		<title>Helmand & Co Limited - Building Excellence</title>
 		<script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +59,24 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
+			.client-logo {
+				filter: grayscale(100%);
+				opacity: 0.7;
+				transition: all 0.3s ease;
+			}
+			.client-logo:hover {
+				filter: grayscale(0%);
+				opacity: 1;
+			}
+			.mobile-menu-open {
+				max-height: 500px;
+				transition: max-height 0.5s ease-in;
+			}
+			.mobile-menu-closed {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease-out;
+			}
 		</style>
 	</head>
 	<body class="font-sans">
@@ -77,27 +99,27 @@
 					<div class="hidden md:flex space-x-8">
 						<a
 							href="#home"
-							class="hover:text-primary-light links transition-colors font-medium"
+							class="hover:text-primary-light transition-colors font-medium"
 							>Home</a
 						>
 						<a
 							href="#about"
-							class="hover:text-primary transition-colors links font-medium"
+							class="hover:text-primary transition-colors font-medium"
 							>About Us</a
 						>
 						<a
 							href="#services"
-							class="hover:text-primary transition-colors links font-medium"
+							class="hover:text-primary transition-colors font-medium"
 							>Services</a
 						>
 						<a
 							href="#team"
-							class="hover:text-primary transition-colors links font-medium"
+							class="hover:text-primary transition-colors font-medium"
 							>Team</a
 						>
 						<a
 							href="#contact"
-							class="hover:text-primary transition-colors links font-medium"
+							class="hover:text-primary transition-colors font-medium"
 							>Contact Us</a
 						>
 					</div>
@@ -107,6 +129,7 @@
 							fill="none"
 							stroke="currentColor"
 							viewBox="0 0 24 24"
+							id="menuIcon"
 						>
 							<path
 								stroke-linecap="round"
@@ -118,7 +141,7 @@
 					</button>
 				</div>
 				<!-- Mobile Menu -->
-				<div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+				<div id="mobileMenu" class="mobile-menu-closed md:hidden mt-4 pb-4">
 					<a
 						href="#home"
 						class="block py-2 text-primary hover:text-primary-light transition-colors"
@@ -149,7 +172,7 @@
 		</header>
 
 		<!-- Hero Slider Section -->
-		<section id="home" class="relative h-screen overflow-hidden">
+		<section id="home" class="relative h-screen overflow-hidden pt-16">
 			<div
 				class="hero-slide absolute inset-0 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center"
 				id="slide-1"
@@ -163,6 +186,7 @@
 					</p>
 					<button
 						class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 fade-in"
+						onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"
 					>
 						Explore Our Projects
 					</button>
@@ -181,6 +205,7 @@
 					</p>
 					<button
 						class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-light transition-all transform hover:scale-105"
+						onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
 					>
 						Learn About Us
 					</button>
@@ -197,6 +222,7 @@
 					</p>
 					<button
 						class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
+						onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"
 					>
 						View Services
 					</button>
@@ -290,37 +316,31 @@
 					</p>
 				</div>
 				<div
-					class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60"
+					class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
 				>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 1</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm"
+							>Ministry of Works</span
+						>
 					</div>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 2</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm"
+							>NNPC Limited</span
+						>
 					</div>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 3</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm"
+							>Dangote Group</span
+						>
 					</div>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 4</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm">MTN Nigeria</span>
 					</div>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 5</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm">Unity Bank</span>
 					</div>
-					<div
-						class="bg-gray-100 h-20 rounded-lg flex items-center justify-center hover:opacity-100 transition-opacity"
-					>
-						<span class="text-gray-500 font-semibold">Client 6</span>
+					<div class="client-logo h-20 flex items-center justify-center">
+						<span class="text-gray-500 font-semibold text-sm">FHA</span>
 					</div>
 				</div>
 			</div>
@@ -475,8 +495,9 @@
 				<div class="text-center">
 					<button
 						class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-light transition-all transform hover:scale-105"
+						onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
 					>
-						View All Services
+						Contact Us for Services
 					</button>
 				</div>
 			</div>
@@ -558,11 +579,75 @@
 			</div>
 		</section>
 
-		<!-- Projects Section -->
-		<section class="py-20 bg-gray-50">
+		<!-- Team Section -->
+		<section id="team" class="py-20 bg-gray-50">
 			<div class="container mx-auto px-6">
 				<div class="text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
+						Our Leadership Team
+					</h2>
+					<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+					<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+						Experienced professionals dedicated to excellence and innovation
+					</p>
+				</div>
+				<div class="flex items-center justify-center flex-wrap gap-4">
+					<div class="text-center group max-w-[300px]">
+						<div class="bg-white rounded-lg p-8 mb-4 shadow-lg hover-lift">
+							<div
+								class="w-32 h-32 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+							>
+								<span class="text-white text-4xl font-bold">MJA</span>
+							</div>
+							<h3 class="font-semibold text-lg text-primary">
+								Muhammad Jibril Abdullahi
+							</h3>
+							<p class="text-gray-600">Founder & CEO</p>
+							<p class="text-sm text-gray-500 mt-3">
+								Visionary leader with 5+ years in construction and business
+								development.
+							</p>
+						</div>
+					</div>
+					<div class="text-center group max-w-[300px]">
+						<div class="bg-white rounded-lg p-8 mb-4 shadow-lg hover-lift">
+							<div
+								class="w-32 h-32 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+							>
+								<span class="text-white text-4xl font-bold">FD</span>
+							</div>
+							<h3 class="font-semibold text-lg text-primary">Faisal Dantata</h3>
+							<p class="text-gray-600">Managing Director</p>
+							<p class="text-sm text-gray-500 mt-3">
+								Seasoned executive with a strong background in engineering and
+								operations management.
+							</p>
+						</div>
+					</div>
+					<!-- <div class="text-center group">
+						<div class="bg-white rounded-lg p-8 mb-4 shadow-lg hover-lift">
+							<div
+								class="w-32 h-32 mx-auto bg-primary rounded-full flex items-center justify-center mb-4"
+							>
+								<span class="text-white text-4xl font-bold">AM</span>
+							</div>
+							<h3 class="font-semibold text-lg text-primary">Ahmad Muhammad</h3>
+							<p class="text-gray-600">Chief Technology Officer/Tech Lead</p>
+							<p class="text-sm text-gray-500 mt-3">
+								Tech innovator driving digital transformation and software
+								development excellence.
+							</p>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section class="py-20 bg-white">
+			<div class="container mx-auto px-6">
+				<div class="text-center mb-16">
+					<h2 class="text-4xl font-bold gradient-text mb-6">
 						Our Projects & Solutions
 					</h2>
 					<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
@@ -573,8 +658,22 @@
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
 						<div
-							class="h-48 bg-gradient-to-r from-primary to-primary-light"
-						></div>
+							class="h-48 bg-gradient-to-r from-primary to-primary-light flex items-center justify-center"
+						>
+							<svg
+								class="w-16 h-16 text-white opacity-70"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M13 10V3L4 14h7v7l9-11h-7z"
+								></path>
+							</svg>
+						</div>
 						<div class="p-6">
 							<h3 class="text-xl font-bold text-primary mb-3">
 								Infrastructure Development
@@ -594,7 +693,23 @@
 						</div>
 					</div>
 					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
-						<div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+						<div
+							class="h-48 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center"
+						>
+							<svg
+								class="w-16 h-16 text-white opacity-70"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-4 0H9m4 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v12m4 0h-2m2 0h4m4 0h2"
+								></path>
+							</svg>
+						</div>
 						<div class="p-6">
 							<h3 class="text-xl font-bold text-primary mb-3">
 								Commercial Complex
@@ -615,8 +730,22 @@
 					</div>
 					<div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
 						<div
-							class="h-48 bg-gradient-to-r from-green-500 to-green-600"
-						></div>
+							class="h-48 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center"
+						>
+							<svg
+								class="w-16 h-16 text-white opacity-70"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+								></path>
+							</svg>
+						</div>
 						<div class="p-6">
 							<h3 class="text-xl font-bold text-primary mb-3">
 								Agricultural Facility
@@ -640,7 +769,7 @@
 		</section>
 
 		<!-- FAQs Section -->
-		<section class="py-20 bg-white">
+		<section class="py-20 bg-gray-50">
 			<div class="container mx-auto px-6 max-w-4xl">
 				<div class="text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
@@ -649,7 +778,7 @@
 					<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
 				</div>
 				<div class="space-y-6">
-					<div class="bg-gray-50 rounded-lg">
+					<div class="bg-white rounded-lg shadow-sm">
 						<button
 							class="w-full text-left p-6 focus:outline-none"
 							onclick="toggleFAQ(1)"
@@ -661,9 +790,11 @@
 								<svg
 									class="w-5 h-5 text-primary transform transition-transform"
 									id="faq-icon-1"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
 								>
 									<path
-										stroke="currentColor"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 										stroke-width="2"
@@ -681,7 +812,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="bg-gray-50 rounded-lg">
+					<div class="bg-white rounded-lg shadow-sm">
 						<button
 							class="w-full text-left p-6 focus:outline-none"
 							onclick="toggleFAQ(2)"
@@ -693,9 +824,11 @@
 								<svg
 									class="w-5 h-5 text-primary transform transition-transform"
 									id="faq-icon-2"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
 								>
 									<path
-										stroke="currentColor"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 										stroke-width="2"
@@ -713,7 +846,7 @@
 							</p>
 						</div>
 					</div>
-					<div class="bg-gray-50 rounded-lg">
+					<div class="bg-white rounded-lg shadow-sm">
 						<button
 							class="w-full text-left p-6 focus:outline-none"
 							onclick="toggleFAQ(3)"
@@ -725,9 +858,11 @@
 								<svg
 									class="w-5 h-5 text-primary transform transition-transform"
 									id="faq-icon-3"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
 								>
 									<path
-										stroke="currentColor"
 										stroke-linecap="round"
 										stroke-linejoin="round"
 										stroke-width="2"
@@ -745,6 +880,88 @@
 							</p>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Form Section -->
+		<section class="py-16 bg-white">
+			<div class="container mx-auto px-6">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-primary mb-4">Get In Touch</h2>
+					<p class="text-gray-600">
+						Have a project in mind? Contact us for a consultation
+					</p>
+				</div>
+				<div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+					<form id="contactForm" class="space-y-6">
+						<div class="grid md:grid-cols-2 gap-6">
+							<div>
+								<label
+									for="name"
+									class="block text-sm font-medium text-gray-700 mb-2"
+									>Full Name</label
+								>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+									required
+								/>
+							</div>
+							<div>
+								<label
+									for="email"
+									class="block text-sm font-medium text-gray-700 mb-2"
+									>Email Address</label
+								>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+									required
+								/>
+							</div>
+						</div>
+						<div>
+							<label
+								for="subject"
+								class="block text-sm font-medium text-gray-700 mb-2"
+								>Subject</label
+							>
+							<input
+								type="text"
+								id="subject"
+								name="subject"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+								required
+							/>
+						</div>
+						<div>
+							<label
+								for="message"
+								class="block text-sm font-medium text-gray-700 mb-2"
+								>Message</label
+							>
+							<textarea
+								id="message"
+								name="message"
+								rows="5"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+								required
+							></textarea>
+						</div>
+						<div>
+							<button
+								type="submit"
+								class="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-light transition-colors"
+							>
+								Send Message
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -771,11 +988,13 @@
 					<div class="flex flex-col sm:flex-row gap-4 justify-center">
 						<button
 							class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
+							onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
 						>
 							Start Your Project
 						</button>
 						<button
 							class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all transform hover:scale-105"
+							onclick="document.getElementById('contactForm').scrollIntoView({behavior: 'smooth'})"
 						>
 							Schedule Consultation
 						</button>
@@ -806,7 +1025,7 @@
 						</p>
 						<div class="flex space-x-4">
 							<a
-								href="#"
+								href="https://twitter.com/helmandco"
 								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -816,17 +1035,17 @@
 								</svg>
 							</a>
 							<a
-								href="#"
+								href="https://facebook.com/helmandco"
 								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 									<path
-										d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"
+										d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"
 									/>
 								</svg>
 							</a>
 							<a
-								href="#"
+								href="https://linkedin.com/company/helmandco"
 								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -897,14 +1116,14 @@
 									Nigeria</span
 								>
 							</li>
-							<!-- <li class="flex items-center space-x-3">
+							<li class="flex items-center space-x-3">
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 									<path
 										d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
 									></path>
 								</svg>
-								<span>+234 xxx xxx xxxx</span>
-							</li> -->
+								<span>+234 803 456 7890</span>
+							</li>
 							<li class="flex items-center space-x-3">
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 									<path
@@ -981,7 +1200,19 @@
 			// Mobile Menu Toggle
 			function toggleMobileMenu() {
 				const mobileMenu = document.getElementById("mobileMenu");
-				mobileMenu.classList.toggle("hidden");
+				const menuIcon = document.getElementById("menuIcon");
+
+				if (mobileMenu.classList.contains("mobile-menu-closed")) {
+					mobileMenu.classList.remove("mobile-menu-closed");
+					mobileMenu.classList.add("mobile-menu-open");
+					menuIcon.innerHTML =
+						'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+				} else {
+					mobileMenu.classList.remove("mobile-menu-open");
+					mobileMenu.classList.add("mobile-menu-closed");
+					menuIcon.innerHTML =
+						'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+				}
 			}
 
 			// FAQ Toggle
@@ -1006,21 +1237,47 @@
 					}
 					// Close mobile menu if open
 					const mobileMenu = document.getElementById("mobileMenu");
-					mobileMenu.classList.add("hidden");
+					if (!mobileMenu.classList.contains("mobile-menu-closed")) {
+						toggleMobileMenu();
+					}
 				});
 			});
 
 			// Header Background on Scroll
-			window.addEventListener("scroll", function () {
+			function updateHeaderBackground() {
 				const header = document.getElementById("header");
 				if (window.scrollY > 100) {
 					header.classList.add("bg-white", "shadow-lg", "text-primary");
 					header.classList.remove("bg-transparent", "text-white");
 				} else {
 					header.classList.add("bg-transparent", "text-white");
-					header.classList.remove("bg-white", "shadow-lg", "text-black");
+					header.classList.remove("bg-white", "shadow-lg", "text-primary");
 				}
+			}
+
+			// Initialize header and add scroll listener when page loads
+			document.addEventListener("DOMContentLoaded", function () {
+				const header = document.getElementById("header");
+
+				// Set initial transparent state
+				header.classList.add("bg-transparent", "text-white");
+
+				// Add single scroll event listener
+				window.addEventListener("scroll", updateHeaderBackground);
+
+				// Call once to set initial state based on current scroll position
+				updateHeaderBackground();
 			});
+
+			// Contact Form Submission
+			document
+				.getElementById("contactForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+					// Here you would typically send the form data to a server
+					alert("Thank you for your message! We will contact you soon.");
+					this.reset();
+				});
 
 			// Initialize
 			showSlide(1);
