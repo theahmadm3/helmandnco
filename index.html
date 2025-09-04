@@ -88,8 +88,12 @@
 			<nav class="container mx-auto px-6 py-4">
 				<div class="flex justify-between items-center">
 					<div class="flex items-center space-x-3">
-						<div class="w-12 h-12 bg-primary flex items-center justify-center">
-							<img src="./helmand-logo-white.png" alt="Helmand n Co Logo" />
+						<div class="w-12 h-12 flex items-center justify-center">
+							<img
+								class="header-logo shadow"
+								src=""
+								alt="Helmand n Co Logo"
+							/>
 						</div>
 						<div>
 							<h1 class="font-bold text-xl">HELMAND & CO</h1>
@@ -1264,21 +1268,39 @@
 			// Header Background on Scroll
 			function updateHeaderBackground() {
 				const header = document.getElementById("header");
+				const logo = document.querySelector(".header-logo"); // Get the logo element
+
 				if (window.scrollY > 100) {
 					header.classList.add("bg-white", "shadow-lg", "text-primary");
 					header.classList.remove("bg-transparent", "text-white");
+
+					// Change logo src for scrolled state (dark logo for light background)
+					if (logo) {
+						logo.src = "./helmand-logo-dark.png"; // Replace with your dark logo path
+					}
 				} else {
 					header.classList.add("bg-transparent", "text-white");
 					header.classList.remove("bg-white", "shadow-lg", "text-primary");
+
+					// Change logo src for initial state (light logo for transparent/dark background)
+					if (logo) {
+						logo.src = "./helmand-logo-white.png"; // Replace with your light logo path
+					}
 				}
 			}
 
 			// Initialize header and add scroll listener when page loads
 			document.addEventListener("DOMContentLoaded", function () {
 				const header = document.getElementById("header");
+				const logo = document.querySelector(".header-logo");
 
 				// Set initial transparent state
 				header.classList.add("bg-transparent", "text-white");
+
+				// Set initial logo
+				if (logo) {
+					logo.src = "./helmand-logo-white.png"; // Replace with your light logo path
+				}
 
 				// Add single scroll event listener
 				window.addEventListener("scroll", updateHeaderBackground);
