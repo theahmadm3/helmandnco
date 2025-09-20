@@ -1,3 +1,17 @@
+/* #slide-1 {
+	background-image: url("./images/staff/CEO.JPG");
+}
+#slide-2 {
+	background-image: url("./images/staff/MD.JPG");
+}
+#slide-3 {
+	background-image: url("./images/staff/COO.JPG");
+}
+#slide-1,
+#slide-2,
+#slide-3 {
+	background-attachment: fixed;
+} */
 .ceo-card {
 	background-image: url("./images/staff/CEO.JPG");
 }
@@ -11,6 +25,6 @@
 .md-card,
 .coo-card {
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 }
