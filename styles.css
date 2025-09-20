@@ -1,0 +1,16 @@
+.ceo-card {
+	background-image: url("./images/staff/CEO.JPG");
+}
+.md-card {
+	background-image: url("./images/staff/MD.JPG");
+}
+.coo-card {
+	background-image: url("./images/staff/COO.JPG");
+}
+.ceo-card,
+.md-card,
+.coo-card {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
