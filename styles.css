@@ -1,11 +1,14 @@
-#slide-1 {
-	background-image: url("./images/projects/construction-1.jpg");
+#slide-1,
+.slide-1 {
+	background-image: url("./images/projects/construction-1.jpg") !important;
 }
-#slide-2 {
-	background-image: url("./images/projects/construction-2.jpg");
+#slide-2,
+.slide-2 {
+	background-image: url("./images/projects/construction-2.jpg") !important;
 }
-#slide-3 {
-	background-image: url("./images/projects/construction-3.jpg");
+#slide-3,
+.slide-3 {
+	background-image: url("./images/projects/construction-3.jpg") !important;
 }
 
 #slide-1,
