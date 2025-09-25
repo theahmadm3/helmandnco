@@ -16,7 +16,7 @@
 #slide-3 {
 	background-attachment: fixed;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 }
 .overlay {
@@ -29,7 +29,7 @@
 }
 
 /* Animation classes */
-.fade-in {
+/* .fade-in {
 	animation: fadeIn 1s ease-in-out;
 }
 
@@ -47,42 +47,42 @@
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-}
+} */
 
 /* Carousel track */
-.carousel-track {
+/* .carousel-track {
 	display: flex;
 	animation: scroll 20s linear infinite;
 	width: calc(200%);
-}
+} */
 
 /* Individual carousel item */
-.carousel-item {
+/* .carousel-item {
 	flex: 0 0 auto;
 	display: flex;
 	align-items: center;
 	justify-items: center;
 	padding: 0 2rem;
 	min-width: 200px;
-}
+} */
 
 /* Pause animation on hover */
-.carousel-container:hover .carousel-track {
+/* .carousel-container:hover .carousel-track {
 	animation-play-state: paused;
-}
+} */
 
 /* Smooth scroll animation */
-@keyframes scroll {
+/* @keyframes scroll {
 	0% {
 		transform: translateX(0);
 	}
 	100% {
 		transform: translateX(-50%);
 	}
-}
+} */
 
 /* Logo styling */
-.partner-logo {
+/* .partner-logo {
 	filter: grayscale(100%);
 	opacity: 0.7;
 	transition: all 0.3s ease;
@@ -92,10 +92,10 @@
 	filter: grayscale(0%);
 	opacity: 1;
 	transform: scale(1.05);
-}
+} */
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 	.carousel-track {
 		animation-duration: 15s;
 	}
@@ -103,7 +103,7 @@
 		min-width: 150px;
 		padding: 0 1rem;
 	}
-}
+} */
 .ceo-card {
 	background-image: url("./images/staff/CEO.JPG");
 }
@@ -113,10 +113,11 @@
 .coo-card {
 	background-image: url("./images/staff/COO.JPG");
 }
+
 .ceo-card,
 .md-card,
 .coo-card {
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
