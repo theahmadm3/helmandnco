@@ -16,7 +16,7 @@
 #slide-3 {
 	background-attachment: fixed;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 .overlay {
@@ -118,6 +118,6 @@
 .md-card,
 .coo-card {
 	background-position: center;
-	background-size: cover;
+	background-size: cover !important;
 	background-repeat: no-repeat;
 }
