@@ -19,6 +19,14 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+@supports (-webkit-touch-callout: none) {
+	#slide-1,
+	#slide-2,
+	#slide-3 {
+		background-attachment: scroll;
+	}
+}
+
 .overlay {
 	background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
 }
