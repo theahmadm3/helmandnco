@@ -140,165 +140,104 @@ showSlide(1);
 document.getElementById("currentYear").textContent =
     new Date().getFullYear();
 
-// Image arrays for each service
-const serviceImages = {
-    construction: [
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1503387762603-91073566d70a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    technology: [
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    oilgas: [
-        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1585145759476-b21aec3d5d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    transportation: [
-        "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    agriculture: [
-        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    training: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ]
-};
+// Tab functionality
+const serviceTabs = document.querySelectorAll(".service-tab");
+const tabContents = document.querySelectorAll(".tab-content");
 
-// Carousel states
-const carouselStates = {
-    construction: { currentIndex: 0 },
-    technology: { currentIndex: 0 },
-    oilgas: { currentIndex: 0 },
-    transportation: { currentIndex: 0 },
-    agriculture: { currentIndex: 0 },
-    training: { currentIndex: 0 }
-};
+serviceTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        // Remove active class from all tabs and contents
+        serviceTabs.forEach((t) => {
+            t.classList.remove("active", "bg-blue-900", "text-white");
+            t.classList.add("text-gray-700", "hover:bg-gray-100");
+        });
+        tabContents.forEach((content) => content.classList.remove("active"));
 
-// Initialize carousels when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all carousels
-    Object.keys(serviceImages).forEach(service => {
-        initializeCarousel(service);
+        // Add active class to clicked tab
+        tab.classList.add("active", "bg-blue-900", "text-white");
+        tab.classList.remove("text-gray-700", "hover:bg-gray-100");
+
+        // Show corresponding content
+        const serviceId = tab.getAttribute("data-service");
+        document.getElementById(serviceId).classList.add("active");
+
+        // Reset all carousels to first slide
+        resetCarousels();
     });
 });
 
-// Initialize carousel for a specific service
-function initializeCarousel(service) {
-    const carousel = document.getElementById(`${service}-carousel`);
-    const indicatorsContainer = document.getElementById(`${service}-indicators`);
-
-    // Clear existing content
-    carousel.innerHTML = '';
-    indicatorsContainer.innerHTML = '';
-
-    // Add slides
-    serviceImages[service].forEach((imageUrl, index) => {
-        const slide = document.createElement('div');
-        slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
-        slide.innerHTML = `<img src="${imageUrl}" alt="${service} image ${index + 1}" class="service-image">`;
-        carousel.appendChild(slide);
-
-        // Add indicator
-        const indicator = document.createElement('span');
-        indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
-        indicator.onclick = () => goToSlide(service, index);
-        indicatorsContainer.appendChild(indicator);
-    });
-}
-
-// Service tab functionality
-function showServiceDetail(service) {
-    // Hide all service details
-    const serviceDetails = document.querySelectorAll('.service-detail');
-    serviceDetails.forEach(detail => {
-        detail.classList.remove('active');
-        detail.classList.add('hidden');
-    });
-
-    // Show selected service detail
-    const selectedDetail = document.getElementById(`${service}-detail`);
-    selectedDetail.classList.remove('hidden');
-    selectedDetail.classList.add('active');
-
-    // Update active tab
-    const serviceTabs = document.querySelectorAll('.service-tab');
-    serviceTabs.forEach(tab => {
-        tab.classList.remove('active');
-    });
-
-    // Find and activate the clicked tab
-    serviceTabs.forEach(tab => {
-        if (tab.textContent.toLowerCase().includes(service)) {
-            tab.classList.add('active');
-        }
-    });
-
-    // Reset carousel for the newly shown service
-    resetCarousel(service);
-}
-
 // Carousel functionality
-function changeSlide(service, direction) {
-    const state = carouselStates[service];
-    const totalSlides = serviceImages[service].length;
-    state.currentIndex = (state.currentIndex + direction + totalSlides) % totalSlides;
-    updateCarousel(service);
-}
+const carousels = document.querySelectorAll(".carousel-container");
 
-function goToSlide(service, index) {
-    const state = carouselStates[service];
-    state.currentIndex = index;
-    updateCarousel(service);
-}
+carousels.forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const indicators = carousel.querySelectorAll(".carousel-indicator");
+    const prevBtn = carousel.querySelector(".carousel-nav.prev");
+    const nextBtn = carousel.querySelector(".carousel-nav.next");
 
-function updateCarousel(service) {
-    const state = carouselStates[service];
-    const carousel = document.getElementById(`${service}-carousel`);
-    const indicators = document.querySelectorAll(`#${service}-indicators .indicator`);
+    let currentSlide = 0;
+    const totalSlides = slides.length;
 
-    // Update slide position
-    carousel.style.transform = `translateX(-${state.currentIndex * 100}%)`;
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-    // Update active slide
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    slides.forEach((slide, index) => {
-        if (index === state.currentIndex) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
-    });
-
-    // Update indicators
-    indicators.forEach((indicator, index) => {
-        if (index === state.currentIndex) {
-            indicator.classList.add('active');
-        } else {
-            indicator.classList.remove('active');
-        }
-    });
-}
-
-function resetCarousel(service) {
-    carouselStates[service].currentIndex = 0;
-    updateCarousel(service);
-}
-
-// Auto-advance carousels (optional)
-setInterval(() => {
-    const activeServiceElement = document.querySelector('.service-detail.active');
-    if (activeServiceElement) {
-        const activeService = activeServiceElement.id.replace('-detail', '');
-        changeSlide(activeService, 1);
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === currentSlide);
+        });
     }
-}, 5000); // Change slide every 5 seconds
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            currentSlide = index;
+            updateCarousel();
+        });
+    });
+
+    // Auto-advance carousel every 5 seconds
+    setInterval(nextSlide, 5000);
+});
+
+function resetCarousels() {
+    carousels.forEach((carousel) => {
+        const track = carousel.querySelector(".carousel-track");
+        const indicators = carousel.querySelectorAll(".carousel-indicator");
+
+        track.style.transform = "translateX(0%)";
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("active", index === 0);
+        });
+    });
+}
+
+// Mobile menu functionality
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenu.classList.toggle("mobile-menu-closed");
+}
+
+// Scroll to form function
+function scrollToForm() {
+    document.getElementById("contact-form").scrollIntoView({
+        behavior: "smooth",
+    });
+}
+
+// Initialize first tab as active
+document.addEventListener("DOMContentLoaded", () => {
+    serviceTabs[0].classList.add("active", "bg-blue-900", "text-white");
+});
