@@ -35,6 +35,59 @@
 .overlay-dark {
 	background: rgba(0, 0, 0, 0.7);
 }
+.hero-slide {
+	transition: opacity 0.5s ease-in-out;
+}
+.fade-in {
+	animation: fadeIn 0.6s ease-in;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.hover-lift {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 20px 25px -5px rgba(19, 53, 81, 0.1);
+}
+.gradient-text {
+	background: linear-gradient(135deg, #133551, #1e4766);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.client-logo {
+	filter: grayscale(100%);
+	opacity: 0.7;
+	transition: all 0.3s ease;
+}
+.client-logo:hover {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+.mobile-menu-open {
+	max-height: 500px;
+	transition: max-height 0.5s ease-in;
+}
+.mobile-menu-closed {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+}
 
 /* Animation classes */
 /* .fade-in {
@@ -128,4 +181,167 @@
 	background-position: center;
 	background-size: cover !important;
 	background-repeat: no-repeat;
+}
+.fade-in {
+	animation: fadeIn 0.6s ease-in;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.hover-lift {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 20px 25px -5px rgba(19, 53, 81, 0.1);
+}
+.gradient-text {
+	background: linear-gradient(135deg, #133551, #1e4766);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+/* Service tab styling */
+.service-tab {
+	background-color: #f8fafc;
+	color: #4a5568;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.service-tab.active {
+	background-color: #2d3748;
+	color: white;
+}
+
+.service-tab:hover:not(.active) {
+	background-color: #e2e8f0;
+}
+
+/* Service detail transitions */
+.service-detail {
+	display: none;
+}
+
+.service-detail.active {
+	display: block;
+	animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Service image styling */
+.service-image {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel Styles */
+.carousel-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.carousel-slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	width: 100%;
+}
+
+.carousel-slide {
+	min-width: 100%;
+	transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active {
+	opacity: 1;
+}
+
+.carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	border-radius: 50%;
+	font-size: 18px;
+	z-index: 10;
+	transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+	left: 10px;
+}
+
+.carousel-btn.next {
+	right: 10px;
+}
+
+.carousel-indicators {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 8px;
+}
+
+.indicator {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.indicator.active {
+	background-color: white;
+}
+
+.indicator:hover:not(.active) {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.carousel-btn {
+		padding: 8px 12px;
+		font-size: 16px;
+	}
+
+	.indicator {
+		width: 10px;
+		height: 10px;
+	}
+
+	.service-image {
+		height: 250px;
+	}
 }
