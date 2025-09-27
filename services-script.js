@@ -37,31 +37,263 @@ function showTab(tabName) {
     }
 }
 
+// Service data configuration
+const serviceData = {
+    'construction': {
+        name: 'Construction & Real Estate',
+        images: [
+            {
+                src: './images/projects/construction-1.jpg',
+                alt: 'Highway Construction Project',
+                title: 'Highway Construction',
+                description: 'Major infrastructure development',
+                fallbackGradient: 'linear-gradient(135deg, #133551, #1e4766)'
+            },
+            {
+                src: './images/projects/construction-2.jpg',
+                alt: 'Commercial Complex Building',
+                title: 'Commercial Complex',
+                description: 'Modern office building',
+                fallbackGradient: 'linear-gradient(135deg, #1e4766, #2d5a87)'
+            },
+            {
+                src: './images/projects/construction-3.jpg',
+                alt: 'Residential Development',
+                title: 'Residential Development',
+                description: 'Quality housing project',
+                fallbackGradient: 'linear-gradient(135deg, #0a2a3d, #133551)'
+            }
+        ]
+    },
+    'technology': {
+        name: 'Software & Technology',
+        images: [
+            {
+                src: './images/services/tech-1.jpg',
+                alt: 'Web Development Project',
+                title: 'Web Development',
+                description: 'Modern responsive websites',
+                fallbackGradient: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
+            },
+            {
+                src: './images/services/tech-2.jpg',
+                alt: 'Mobile Application',
+                title: 'Mobile Apps',
+                description: 'Cross-platform applications',
+                fallbackGradient: 'linear-gradient(135deg, #0891b2, #0e7490)'
+            },
+            {
+                src: './images/services/tech-3.jpg',
+                alt: 'Smart Home System',
+                title: 'Smart Systems',
+                description: 'IoT and automation',
+                fallbackGradient: 'linear-gradient(135deg, #059669, #047857)'
+            }
+        ]
+    },
+    'oilgas': {
+        name: 'Oil & Gas',
+        images: [
+            {
+                src: './images/services/oil-1.jpg',
+                alt: 'Oil Exploration Site',
+                title: 'Exploration',
+                description: 'Advanced geological surveys',
+                fallbackGradient: 'linear-gradient(135deg, #dc2626, #b91c1c)'
+            },
+            {
+                src: './images/services/oil-2.jpg',
+                alt: 'Oil Refining Facility',
+                title: 'Refining',
+                description: 'Product processing facilities',
+                fallbackGradient: 'linear-gradient(135deg, #ea580c, #c2410c)'
+            },
+            {
+                src: './images/services/oil-3.jpg',
+                alt: 'Oil Distribution Network',
+                title: 'Distribution',
+                description: 'Supply chain management',
+                fallbackGradient: 'linear-gradient(135deg, #d97706, #b45309)'
+            }
+        ]
+    },
+    'transport': {
+        name: 'Transportation',
+        images: [
+            {
+                src: './images/services/transport-1.jpg',
+                alt: 'Heavy Cargo Transportation',
+                title: 'Heavy Cargo',
+                description: 'Industrial transportation',
+                fallbackGradient: 'linear-gradient(135deg, #7c2d12, #92400e)'
+            },
+            {
+                src: './images/services/transport-2.jpg',
+                alt: 'Fleet Operations Center',
+                title: 'Fleet Operations',
+                description: 'Modern logistics solutions',
+                fallbackGradient: 'linear-gradient(135deg, #a21caf, #86198f)'
+            },
+            {
+                src: './images/services/transport-3.jpg',
+                alt: 'Warehouse Distribution',
+                title: 'Warehouse',
+                description: 'Storage and distribution',
+                fallbackGradient: 'linear-gradient(135deg, #be185d, #9d174d)'
+            }
+        ]
+    },
+    'agriculture': {
+        name: 'Agriculture',
+        images: [
+            {
+                src: './images/services/agri-1.jpg',
+                alt: 'Modern Farming Techniques',
+                title: 'Modern Farming',
+                description: 'Advanced agricultural techniques',
+                fallbackGradient: 'linear-gradient(135deg, #16a34a, #15803d)'
+            },
+            {
+                src: './images/services/agri-2.jpg',
+                alt: 'Fertilizer Production Plant',
+                title: 'Fertilizer Plant',
+                description: 'Quality fertilizer production',
+                fallbackGradient: 'linear-gradient(135deg, #65a30d, #4d7c0f)'
+            },
+            {
+                src: './images/services/agri-3.jpg',
+                alt: 'Agricultural Processing Facility',
+                title: 'Processing Facility',
+                description: 'Agricultural product processing',
+                fallbackGradient: 'linear-gradient(135deg, #059669, #047857)'
+            }
+        ]
+    },
+    'training': {
+        name: 'Corporate Training',
+        images: [
+            {
+                src: './images/services/training-1.jpg',
+                alt: 'Leadership Training Session',
+                title: 'Leadership Training',
+                description: 'Executive development programs',
+                fallbackGradient: 'linear-gradient(135deg, #1d4ed8, #1e40af)'
+            },
+            {
+                src: './images/services/training-2.jpg',
+                alt: 'Technical Workshop',
+                title: 'Technical Workshops',
+                description: 'Hands-on skill development',
+                fallbackGradient: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
+            },
+            {
+                src: './images/services/training-3.jpg',
+                alt: 'Certification Program',
+                title: 'Certification Programs',
+                description: 'Professional qualifications',
+                fallbackGradient: 'linear-gradient(135deg, #0891b2, #0e7490)'
+            }
+        ]
+    }
+};
+
 // Carousel functionality
 const carouselStates = {};
 
 function initializeCarousel(carouselId) {
+    const serviceKey = carouselId.replace('-carousel', '');
+    const service = serviceData[serviceKey];
+
+    if (!service) {
+        console.warn(`Service data not found for: ${serviceKey}`);
+        return;
+    }
+
     if (!carouselStates[carouselId]) {
         carouselStates[carouselId] = {
             currentSlide: 0,
-            totalSlides: 0
+            totalSlides: service.images.length,
+            serviceKey: serviceKey
         };
     }
 
-    const carousel = document.getElementById(carouselId);
-    if (carousel) {
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        carouselStates[carouselId].totalSlides = slides.length;
+    // Generate carousel HTML dynamically
+    generateCarouselHTML(carouselId, service);
 
-        // Show first slide
-        slides.forEach((slide, index) => {
-            if (index === 0) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
+    // Show first slide
+    showSlide(carouselId, 0);
+}
+
+function generateCarouselHTML(carouselId, service) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+
+    // Clear existing content
+    carousel.innerHTML = '';
+
+    // Create slides
+    service.images.forEach((image, index) => {
+        const slideDiv = document.createElement('div');
+        slideDiv.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        img.className = 'w-full h-80 object-cover rounded-lg shadow-lg';
+
+        // Add error handler for fallback
+        img.addEventListener('error', function () {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'w-full h-80 rounded-lg shadow-lg flex flex-col items-center justify-center text-white font-semibold';
+            placeholder.style.background = image.fallbackGradient;
+
+            const titleEl = document.createElement('div');
+            titleEl.className = 'text-2xl mb-2';
+            titleEl.textContent = image.title;
+
+            const descEl = document.createElement('div');
+            descEl.className = 'text-sm opacity-80';
+            descEl.textContent = image.description;
+
+            placeholder.appendChild(titleEl);
+            placeholder.appendChild(descEl);
+
+            this.parentNode.replaceChild(placeholder, this);
         });
-    }
+
+        const caption = document.createElement('div');
+        caption.className = 'absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded';
+        caption.innerHTML = `
+            <h4 class="font-semibold">${image.title}</h4>
+            <p class="text-sm">${image.description}</p>
+        `;
+
+        slideDiv.appendChild(img);
+        slideDiv.appendChild(caption);
+        carousel.appendChild(slideDiv);
+    });
+
+    // Add navigation buttons
+    const prevButton = document.createElement('button');
+    prevButton.className = 'carousel-prev';
+    prevButton.onclick = () => prevSlide(carouselId);
+    prevButton.innerHTML = `
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    `;
+
+    const nextButton = document.createElement('button');
+    nextButton.className = 'carousel-next';
+    nextButton.onclick = () => nextSlide(carouselId);
+    nextButton.innerHTML = `
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    `;
+
+    carousel.appendChild(prevButton);
+    carousel.appendChild(nextButton);
 }
 
 function resetCarousel(carousel) {
@@ -275,6 +507,126 @@ function initializeKeyboardNavigation() {
                 break;
         }
     });
+}
+
+// Touch/swipe support for mobile devices
+function initializeTouchSupport() {
+    const carouselIds = Object.keys(serviceData).map(key => `${key}-carousel`);
+
+    carouselIds.forEach(carouselId => {
+        const carousel = document.getElementById(carouselId);
+        if (!carousel) return;
+
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        carousel.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        carousel.addEventListener('touchmove', function (e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', function (e) {
+            if (!isDragging) return;
+
+            const diffX = startX - currentX;
+            const threshold = 50; // Minimum swipe distance
+
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Swiped left, show next slide
+                    nextSlide(carouselId);
+                } else {
+                    // Swiped right, show previous slide
+                    prevSlide(carouselId);
+                }
+            }
+
+            isDragging = false;
+        });
+    });
+}
+
+// Utility function to add new service data
+function addServiceData(serviceKey, serviceConfig) {
+    if (serviceData[serviceKey]) {
+        console.warn(`Service '${serviceKey}' already exists. Use updateServiceData to modify.`);
+        return false;
+    }
+
+    // Validate service configuration
+    if (!serviceConfig.name || !Array.isArray(serviceConfig.images)) {
+        console.error('Invalid service configuration. Required: name (string), images (array)');
+        return false;
+    }
+
+    serviceData[serviceKey] = serviceConfig;
+    return true;
+}
+
+// Utility function to update existing service data
+function updateServiceData(serviceKey, updates) {
+    if (!serviceData[serviceKey]) {
+        console.warn(`Service '${serviceKey}' not found. Use addServiceData to create new service.`);
+        return false;
+    }
+
+    serviceData[serviceKey] = { ...serviceData[serviceKey], ...updates };
+
+    // Re-initialize carousel if it exists
+    const carouselId = `${serviceKey}-carousel`;
+    if (document.getElementById(carouselId)) {
+        initializeCarousel(carouselId);
+    }
+
+    return true;
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize carousels using service data
+    Object.keys(serviceData).forEach(serviceKey => {
+        const carouselId = `${serviceKey}-carousel`;
+        initializeCarousel(carouselId);
+    });
+
+    // Start autoplay
+    startCarouselAutoplay();
+
+    // Initialize other functionality
+    initializeSmoothScrolling();
+    initializeContactForm();
+    initializeKeyboardNavigation();
+    initializeTouchSupport();
+
+    // Set current year
+    const currentYear = document.getElementById('currentYear');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
+
+    // Initialize header scroll effect
+    window.addEventListener('scroll', updateHeaderBackground);
+    updateHeaderBackground(); // Set initial state
+
+    // Show default tab (construction)
+    showTab('construction');
+}); Carousel.id;
+
+switch (e.key) {
+    case 'ArrowLeft':
+        e.preventDefault();
+        prevSlide(carouselId);
+        break;
+    case 'ArrowRight':
+        e.preventDefault();
+        nextSlide(carouselId);
+        break;
 }
 
 // Touch/swipe support for mobile devices
