@@ -5,13 +5,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
-			content="Helmand & Co Limited - Comprehensive services across construction, technology, oil & gas, transportation, agriculture, and corporate training."
+			content="Helmand & Co Limited Services - Comprehensive construction, technology, oil & gas, transportation, agricultural, and corporate training solutions."
 		/>
 		<link rel="icon" href="./helmand-logo-white.png" type="image/png" />
+		<link rel="stylesheet" href="./services-styles.css" />
 		<title>Our Services - Helmand & Co Limited</title>
 		<script src="https://cdn.tailwindcss.com"></script>
-		<script src="./script.js"></script>
-		<link rel="stylesheet" href="styles.css" />
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#133551",
+							"primary-light": "#1e4766",
+							"primary-dark": "#0a2a3d",
+						},
+					},
+				},
+			};
+		</script>
 	</head>
 	<body class="font-sans">
 		<!-- Header -->
@@ -23,7 +35,11 @@
 				<div class="flex justify-between items-center">
 					<div class="flex items-center space-x-3">
 						<div class="w-12 h-12 flex items-center justify-center">
-							<img class="header-logo shadow" src="" alt="Helmand n Co Logo" />
+							<img
+								class="header-logo shadow"
+								src="./helmand-logo-dark.png"
+								alt="Helmand n Co Logo"
+							/>
 						</div>
 						<div>
 							<h1 class="font-bold text-xl">HELMAND & CO</h1>
@@ -32,22 +48,22 @@
 					</div>
 					<div class="hidden md:flex space-x-8">
 						<a
-							href="#home"
+							href="./index.html"
 							class="hover:text-primary-light transition-colors font-medium"
 							>Home</a
 						>
 						<a
-							href="#about"
+							href="./index.html#about"
 							class="hover:text-primary transition-colors font-medium"
 							>About Us</a
 						>
 						<a
 							href="#services"
-							class="hover:text-primary transition-colors font-medium"
+							class="text-primary hover:text-primary-light transition-colors font-medium"
 							>Services</a
 						>
 						<a
-							href="#team"
+							href="./index.html#team"
 							class="hover:text-primary transition-colors font-medium"
 							>Team</a
 						>
@@ -77,22 +93,22 @@
 				<!-- Mobile Menu -->
 				<div id="mobileMenu" class="mobile-menu-closed md:hidden mt-4 pb-4">
 					<a
-						href="#home"
-						class="block py-2 text-primary hover:text-primary-light transition-colors"
+						href="./index.html"
+						class="block py-2 text-gray-700 hover:text-primary transition-colors"
 						>Home</a
 					>
 					<a
-						href="#about"
+						href="./index.html#about"
 						class="block py-2 text-gray-700 hover:text-primary transition-colors"
 						>About Us</a
 					>
 					<a
 						href="#services"
-						class="block py-2 text-gray-700 hover:text-primary transition-colors"
+						class="block py-2 text-primary hover:text-primary-light transition-colors"
 						>Services</a
 					>
 					<a
-						href="#team"
+						href="./index.html#team"
 						class="block py-2 text-gray-700 hover:text-primary transition-colors"
 						>Team</a
 					>
@@ -107,685 +123,1237 @@
 
 		<!-- Hero Section -->
 		<section
-			class="pt-24 pb-16 bg-primary from-blue-900 via-blue-800 to-blue-900 text-white"
+			id="services"
+			class="pt-24 pb-16 bg-gradient-to-br from-primary to-primary-light text-white"
 		>
 			<div class="container mx-auto px-6 text-center">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-				<p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+				<h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">
+					Our Services
+				</h1>
+				<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">
 					Comprehensive solutions across multiple industries, delivering
 					excellence through innovation and expertise
 				</p>
+				<div class="w-20 h-1 bg-white mx-auto"></div>
 			</div>
 		</section>
 
 		<!-- Services Tabs Section -->
-		<section id="services" class="py-20 bg-gray-50">
+		<section class="py-20 bg-gray-50">
 			<div class="container mx-auto px-6">
-				<div class="text-center mb-16">
-					<h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
-						What We Offer
-					</h2>
-					<div class="w-20 h-1 bg-blue-900 mx-auto mb-8"></div>
-				</div>
-
-				<!-- Service Tabs -->
+				<!-- Tab Navigation -->
 				<div
-					class="flex flex-wrap justify-center mb-12 bg-white p-2 rounded-lg shadow-lg max-w-6xl mx-auto"
+					class="flex flex-wrap justify-center mb-12 border-b border-gray-200"
 				>
 					<button
-						class="service-tab active px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="construction"
+						class="tab-button active px-6 py-3 font-semibold text-lg border-b-2 border-primary text-primary transition-all"
+						onclick="showTab('construction')"
+						data-tab="construction"
 					>
 						Construction & Real Estate
 					</button>
 					<button
-						class="service-tab px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="technology"
+						class="tab-button px-6 py-3 font-semibold text-lg border-b-2 border-transparent text-gray-600 hover:text-primary transition-all"
+						onclick="showTab('technology')"
+						data-tab="technology"
 					>
 						Software & Technology
 					</button>
 					<button
-						class="service-tab px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="oil-gas"
+						class="tab-button px-6 py-3 font-semibold text-lg border-b-2 border-transparent text-gray-600 hover:text-primary transition-all"
+						onclick="showTab('oilgas')"
+						data-tab="oilgas"
 					>
 						Oil & Gas
 					</button>
 					<button
-						class="service-tab px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="transportation"
+						class="tab-button px-6 py-3 font-semibold text-lg border-b-2 border-transparent text-gray-600 hover:text-primary transition-all"
+						onclick="showTab('transport')"
+						data-tab="transport"
 					>
 						Transportation
 					</button>
 					<button
-						class="service-tab px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="agriculture"
+						class="tab-button px-6 py-3 font-semibold text-lg border-b-2 border-transparent text-gray-600 hover:text-primary transition-all"
+						onclick="showTab('agriculture')"
+						data-tab="agriculture"
 					>
 						Agriculture
 					</button>
 					<button
-						class="service-tab px-4 py-3 m-1 rounded-lg font-semibold transition-all"
-						data-service="training"
+						class="tab-button px-6 py-3 font-semibold text-lg border-b-2 border-transparent text-gray-600 hover:text-primary transition-all"
+						onclick="showTab('training')"
+						data-tab="training"
 					>
 						Corporate Training
 					</button>
 				</div>
 
-				<!-- Service Content -->
-				<div class="max-w-6xl mx-auto">
-					<!-- Construction & Real Estate -->
-					<div class="tab-content active" id="construction">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Construction & Real Estate
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									From groundbreaking infrastructure projects to premium real
-									estate developments, we deliver comprehensive construction
-									solutions that stand the test of time. Our expertise spans
-									roads, bridges, commercial buildings, and residential
-									complexes.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Infrastructure Development
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Commercial Construction
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Residential Projects
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Property Development
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Land Acquisition
-									</li>
-								</ul>
-								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
-								>
-									Start Your Construction Project
-								</button>
-							</div>
-							<div class="carousel-container" data-carousel="construction">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#1e40af,
-													#3b82f6
-												);
-											"
+				<!-- Tab Content -->
+				<div id="construction" class="tab-content active">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Construction & Real Estate
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								We provide comprehensive construction solutions including roads,
+								bridges, buildings, and infrastructure projects. Our real estate
+								services cover land acquisition, property development, and
+								project management.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
 										>
-											<div class="service-overlay">
-												Infrastructure Development
-											</div>
-										</div>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
 									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#059669,
-													#10b981
-												);
-											"
-										>
-											<div class="service-overlay">Commercial Buildings</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#dc2626,
-													#ef4444
-												);
-											"
-										>
-											<div class="service-overlay">Residential Projects</div>
-										</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Infrastructure Development
+										</h4>
+										<p class="text-gray-600">
+											Roads, bridges, and public infrastructure projects
+										</p>
 									</div>
 								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
-								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Commercial Buildings
+										</h4>
+										<p class="text-gray-600">
+											Office complexes, retail centers, and industrial
+											facilities
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Property Development
+										</h4>
+										<p class="text-gray-600">
+											Land acquisition, residential and commercial development
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Software & Technology -->
-					<div class="tab-content" id="technology">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Software & Technology Solutions
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									Transform your business with cutting-edge digital solutions.
-									We specialize in custom software development, mobile
-									applications, enterprise systems, and smart technology
-									implementations that drive efficiency and growth.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Custom Software Development
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Mobile App Development
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Enterprise Solutions
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Smart Home Systems
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Network Infrastructure
-									</li>
-								</ul>
+						<div class="relative">
+							<div class="carousel-container" id="construction-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/projects/construction-1.jpg"
+										alt="Construction Project 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Highway Construction</h4>
+										<p class="text-sm">Major infrastructure development</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/projects/construction-2.jpg"
+										alt="Construction Project 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Commercial Complex</h4>
+										<p class="text-sm">Modern office building</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/projects/construction-3.jpg"
+										alt="Construction Project 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Residential Development</h4>
+										<p class="text-sm">Quality housing project</p>
+									</div>
+								</div>
 								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
+									class="carousel-prev"
+									onclick="prevSlide('construction-carousel')"
 								>
-									Launch Your Digital Project
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
 								</button>
-							</div>
-							<div class="carousel-container" data-carousel="technology">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#7c3aed,
-													#a855f7
-												);
-											"
-										>
-											<div class="service-overlay">Web Development</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#0891b2,
-													#06b6d4
-												);
-											"
-										>
-											<div class="service-overlay">Mobile Applications</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#ea580c,
-													#f97316
-												);
-											"
-										>
-											<div class="service-overlay">Enterprise Systems</div>
-										</div>
-									</div>
-								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
+								<button
+									class="carousel-next"
+									onclick="nextSlide('construction-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
 								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
-								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 
-					<!-- Oil & Gas -->
-					<div class="tab-content" id="oil-gas">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Oil & Gas Solutions
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									Comprehensive oil and gas services from exploration to
-									distribution. We provide expert solutions in petroleum product
-									supply, marketing, and industrial chemical distribution with a
-									focus on safety and environmental responsibility.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Petroleum Exploration
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Product Supply & Distribution
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Industrial Chemicals
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Marketing Services
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Safety Consulting
-									</li>
-								</ul>
-								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
-								>
-									Explore Oil & Gas Solutions
-								</button>
-							</div>
-							<div class="carousel-container" data-carousel="oil-gas">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#374151,
-													#4b5563
-												);
-											"
+				<div id="technology" class="tab-content">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Software & Technology Solutions
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								Cutting-edge technology solutions including website and app
+								development, enterprise software, smart home systems, and
+								comprehensive digital transformation services.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
 										>
-											<div class="service-overlay">Exploration Services</div>
-										</div>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
 									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#991b1b,
-													#dc2626
-												);
-											"
-										>
-											<div class="service-overlay">Product Distribution</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#1f2937,
-													#374151
-												);
-											"
-										>
-											<div class="service-overlay">Industrial Solutions</div>
-										</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Web & Mobile Development
+										</h4>
+										<p class="text-gray-600">
+											Custom websites and mobile applications
+										</p>
 									</div>
 								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
-								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Enterprise Software
+										</h4>
+										<p class="text-gray-600">
+											Business management and automation systems
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Smart Home Systems
+										</h4>
+										<p class="text-gray-600">
+											IoT and home automation solutions
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Transportation -->
-					<div class="tab-content" id="transportation">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Transportation Solutions
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									Reliable transportation and logistics services that keep your
-									business moving. From local cartage to long-distance freight,
-									we provide comprehensive transportation solutions tailored to
-									your needs.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Freight Transportation
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Logistics Management
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Cartage Services
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Fleet Management
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Supply Chain Solutions
-									</li>
-								</ul>
+						<div class="relative">
+							<div class="carousel-container" id="technology-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/services/tech-1.jpg"
+										alt="Technology Solution 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Web Development</h4>
+										<p class="text-sm">Modern responsive websites</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/tech-2.jpg"
+										alt="Technology Solution 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Mobile Apps</h4>
+										<p class="text-sm">Cross-platform applications</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/tech-3.jpg"
+										alt="Technology Solution 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Smart Systems</h4>
+										<p class="text-sm">IoT and automation</p>
+									</div>
+								</div>
 								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
+									class="carousel-prev"
+									onclick="prevSlide('technology-carousel')"
 								>
-									Get Transportation Quote
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
 								</button>
-							</div>
-							<div class="carousel-container" data-carousel="transportation">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#0369a1,
-													#0284c7
-												);
-											"
-										>
-											<div class="service-overlay">Freight Services</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#7c2d12,
-													#ea580c
-												);
-											"
-										>
-											<div class="service-overlay">Logistics Management</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#166534,
-													#16a34a
-												);
-											"
-										>
-											<div class="service-overlay">Fleet Operations</div>
-										</div>
-									</div>
-								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
+								<button
+									class="carousel-next"
+									onclick="nextSlide('technology-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
 								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
-								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 
-					<!-- Agriculture -->
-					<div class="tab-content" id="agriculture">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Agricultural Solutions
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									Modern agricultural solutions that increase productivity and
-									sustainability. From fertilizer production to advanced farming
-									techniques, we support the agricultural sector with innovative
-									approaches and quality products.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Fertilizer Production
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Modern Farming Techniques
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Agricultural Product Distribution
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Crop Consulting
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Sustainable Practices
-									</li>
-								</ul>
-								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
-								>
-									Enhance Your Agriculture
-								</button>
-							</div>
-							<div class="carousel-container" data-carousel="agriculture">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#16a34a,
-													#22c55e
-												);
-											"
+				<div id="oilgas" class="tab-content">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Oil & Gas Solutions
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								Comprehensive oil and gas services including exploration,
+								supply, and marketing of petroleum products and industrial
+								chemicals with a focus on safety and environmental
+								responsibility.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
 										>
-											<div class="service-overlay">Crop Production</div>
-										</div>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
 									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#ca8a04,
-													#eab308
-												);
-											"
-										>
-											<div class="service-overlay">Fertilizer Solutions</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#9333ea,
-													#a855f7
-												);
-											"
-										>
-											<div class="service-overlay">Modern Farming</div>
-										</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Exploration Services
+										</h4>
+										<p class="text-gray-600">
+											Geological surveys and resource assessment
+										</p>
 									</div>
 								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
-								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">Product Supply</h4>
+										<p class="text-gray-600">
+											Petroleum products and industrial chemicals
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Marketing & Distribution
+										</h4>
+										<p class="text-gray-600">
+											Strategic market analysis and distribution networks
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<!-- Corporate Training -->
-					<div class="tab-content" id="training">
-						<div class="grid md:grid-cols-2 gap-12 items-center">
-							<div class="space-y-6">
-								<h3 class="text-3xl font-bold text-primary">
-									Corporate Training
-								</h3>
-								<p class="text-lg text-gray-700 leading-relaxed">
-									Empower your workforce with comprehensive training programs
-									designed to enhance skills, productivity, and professional
-									development. Our expert trainers deliver customized solutions
-									for organizations of all sizes.
-								</p>
-								<ul class="space-y-3 text-gray-700">
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Leadership Development
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Technical Skills Training
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Professional Certifications
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Team Building
-									</li>
-									<li class="flex items-center">
-										<span class="w-2 h-2 bg-blue-900 rounded-full mr-3"></span
-										>Custom Programs
-									</li>
-								</ul>
+						<div class="relative">
+							<div class="carousel-container" id="oilgas-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/services/oil-1.jpg"
+										alt="Oil & Gas Project 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Exploration</h4>
+										<p class="text-sm">Advanced geological surveys</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/oil-2.jpg"
+										alt="Oil & Gas Project 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Refining</h4>
+										<p class="text-sm">Product processing facilities</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/oil-3.jpg"
+										alt="Oil & Gas Project 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Distribution</h4>
+										<p class="text-sm">Supply chain management</p>
+									</div>
+								</div>
 								<button
-									class="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105"
-									onclick="scrollToForm()"
+									class="carousel-prev"
+									onclick="prevSlide('oilgas-carousel')"
 								>
-									Schedule Training Program
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
+								</button>
+								<button
+									class="carousel-next"
+									onclick="nextSlide('oilgas-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
 								</button>
 							</div>
-							<div class="carousel-container" data-carousel="training">
-								<div class="carousel-track">
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#7c2d12,
-													#ea580c
-												);
-											"
+						</div>
+					</div>
+				</div>
+
+				<div id="transport" class="tab-content">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Transportation Services
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								Comprehensive logistics, cartage, and transportation services
+								across various industries with modern fleet management and
+								efficient supply chain solutions.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
 										>
-											<div class="service-overlay">Leadership Training</div>
-										</div>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
 									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#1e40af,
-													#3b82f6
-												);
-											"
-										>
-											<div class="service-overlay">
-												Professional Development
-											</div>
-										</div>
-									</div>
-									<div class="carousel-slide">
-										<div
-											class="service-image"
-											style="
-												background-image: linear-gradient(
-													45deg,
-													#059669,
-													#10b981
-												);
-											"
-										>
-											<div class="service-overlay">Team Building</div>
-										</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">Freight & Cargo</h4>
+										<p class="text-gray-600">
+											Heavy-duty transportation and logistics
+										</p>
 									</div>
 								</div>
-								<button class="carousel-nav prev" data-direction="prev">
-									‹
-								</button>
-								<button class="carousel-nav next" data-direction="next">
-									›
-								</button>
-								<div class="carousel-indicators">
-									<span class="carousel-indicator active" data-slide="0"></span>
-									<span class="carousel-indicator" data-slide="1"></span>
-									<span class="carousel-indicator" data-slide="2"></span>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Fleet Management
+										</h4>
+										<p class="text-gray-600">
+											Modern vehicle fleet and maintenance
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">Supply Chain</h4>
+										<p class="text-gray-600">End-to-end logistics solutions</p>
+									</div>
 								</div>
 							</div>
+						</div>
+						<div class="relative">
+							<div class="carousel-container" id="transport-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/services/transport-1.jpg"
+										alt="Transportation Service 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Heavy Cargo</h4>
+										<p class="text-sm">Industrial transportation</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/transport-2.jpg"
+										alt="Transportation Service 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Fleet Operations</h4>
+										<p class="text-sm">Modern logistics solutions</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/transport-3.jpg"
+										alt="Transportation Service 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Warehouse</h4>
+										<p class="text-sm">Storage and distribution</p>
+									</div>
+								</div>
+								<button
+									class="carousel-prev"
+									onclick="prevSlide('transport-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
+								</button>
+								<button
+									class="carousel-next"
+									onclick="nextSlide('transport-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="agriculture" class="tab-content">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Agricultural Solutions
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								Modern farming techniques, fertilizer production, and
+								agricultural product distribution with sustainable practices and
+								innovative technologies for enhanced productivity.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">Modern Farming</h4>
+										<p class="text-gray-600">
+											Advanced agricultural techniques and equipment
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Fertilizer Production
+										</h4>
+										<p class="text-gray-600">
+											Quality fertilizers and soil enhancement
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Product Distribution
+										</h4>
+										<p class="text-gray-600">Farm-to-market supply chains</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<div class="carousel-container" id="agriculture-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/services/agri-1.jpg"
+										alt="Agriculture Service 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Modern Farming</h4>
+										<p class="text-sm">Advanced agricultural techniques</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/agri-2.jpg"
+										alt="Agriculture Service 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Fertilizer Plant</h4>
+										<p class="text-sm">Quality fertilizer production</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/agri-3.jpg"
+										alt="Agriculture Service 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Processing Facility</h4>
+										<p class="text-sm">Agricultural product processing</p>
+									</div>
+								</div>
+								<button
+									class="carousel-prev"
+									onclick="prevSlide('agriculture-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
+								</button>
+								<button
+									class="carousel-next"
+									onclick="nextSlide('agriculture-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="training" class="tab-content">
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="space-y-6">
+							<h2 class="text-3xl font-bold text-primary mb-6">
+								Corporate Training
+							</h2>
+							<p class="text-lg text-gray-700 leading-relaxed">
+								Professional development and training programs for organizations
+								and individuals, focusing on skill enhancement, leadership
+								development, and industry-specific knowledge transfer.
+							</p>
+							<div class="space-y-4">
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Leadership Development
+										</h4>
+										<p class="text-gray-600">
+											Executive and management training programs
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Technical Skills
+										</h4>
+										<p class="text-gray-600">
+											Industry-specific technical training
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start space-x-3">
+									<div
+										class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+									>
+										<svg
+											class="w-3 h-3 text-white"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											></path>
+										</svg>
+									</div>
+									<div>
+										<h4 class="font-semibold text-gray-900">
+											Professional Certification
+										</h4>
+										<p class="text-gray-600">
+											Industry-recognized certification programs
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="relative">
+							<div class="carousel-container" id="training-carousel">
+								<div class="carousel-slide active">
+									<img
+										src="./images/services/training-1.jpg"
+										alt="Training Service 1"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Leadership Training</h4>
+										<p class="text-sm">Executive development programs</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/training-2.jpg"
+										alt="Training Service 2"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Technical Workshops</h4>
+										<p class="text-sm">Hands-on skill development</p>
+									</div>
+								</div>
+								<div class="carousel-slide">
+									<img
+										src="./images/services/training-3.jpg"
+										alt="Training Service 3"
+										class="w-full h-80 object-cover rounded-lg shadow-lg"
+									/>
+									<div
+										class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-3 rounded"
+									>
+										<h4 class="font-semibold">Certification Programs</h4>
+										<p class="text-sm">Professional qualifications</p>
+									</div>
+								</div>
+								<button
+									class="carousel-prev"
+									onclick="prevSlide('training-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M15 19l-7-7 7-7"
+										></path>
+									</svg>
+								</button>
+								<button
+									class="carousel-next"
+									onclick="nextSlide('training-carousel')"
+								>
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 5l7 7-7 7"
+										></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQs Section -->
+		<section class="py-20 bg-white">
+			<div class="container mx-auto px-6 max-w-4xl">
+				<div class="text-center mb-16">
+					<h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">
+						Frequently Asked Questions
+					</h2>
+					<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+				</div>
+				<div class="space-y-6">
+					<div class="bg-gray-50 rounded-lg shadow-sm">
+						<button
+							class="w-full text-left p-6 focus:outline-none"
+							onclick="toggleFAQ(1)"
+						>
+							<div class="flex justify-between items-center">
+								<h3 class="text-lg font-semibold text-primary">
+									What industries do you serve?
+								</h3>
+								<svg
+									class="w-5 h-5 text-primary transform transition-transform"
+									id="faq-icon-1"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</div>
+						</button>
+						<div class="hidden px-6 pb-6" id="faq-content-1">
+							<p class="text-gray-600">
+								We serve multiple industries including construction, real
+								estate, oil & gas, agriculture, transportation, software and
+								technology solutions and manufacturing. Our diverse expertise
+								allows us to provide comprehensive solutions across various
+								sectors.
+							</p>
+						</div>
+					</div>
+					<div class="bg-gray-50 rounded-lg shadow-sm">
+						<button
+							class="w-full text-left p-6 focus:outline-none"
+							onclick="toggleFAQ(2)"
+						>
+							<div class="flex justify-between items-center">
+								<h3 class="text-lg font-semibold text-primary">
+									How do you ensure quality in your projects?
+								</h3>
+								<svg
+									class="w-5 h-5 text-primary transform transition-transform"
+									id="faq-icon-2"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</div>
+						</button>
+						<div class="hidden px-6 pb-6" id="faq-content-2">
+							<p class="text-gray-600">
+								We maintain strict quality standards through certified
+								processes, regular inspections, and adherence to international
+								standards including ISO 9001:2015. Our experienced team ensures
+								every project meets or exceeds expectations.
+							</p>
+						</div>
+					</div>
+					<div class="bg-gray-50 rounded-lg shadow-sm">
+						<button
+							class="w-full text-left p-6 focus:outline-none"
+							onclick="toggleFAQ(3)"
+						>
+							<div class="flex justify-between items-center">
+								<h3 class="text-lg font-semibold text-primary">
+									What is your project timeline approach?
+								</h3>
+								<svg
+									class="w-5 h-5 text-primary transform transition-transform"
+									id="faq-icon-3"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</div>
+						</button>
+						<div class="hidden px-6 pb-6" id="faq-content-3">
+							<p class="text-gray-600">
+								We develop detailed project timelines based on scope,
+								complexity, and client requirements. Our project management
+								methodology ensures timely delivery while maintaining quality
+								standards throughout the project lifecycle.
+							</p>
+						</div>
+					</div>
+					<div class="bg-gray-50 rounded-lg shadow-sm">
+						<button
+							class="w-full text-left p-6 focus:outline-none"
+							onclick="toggleFAQ(4)"
+						>
+							<div class="flex justify-between items-center">
+								<h3 class="text-lg font-semibold text-primary">
+									Do you provide customized solutions?
+								</h3>
+								<svg
+									class="w-5 h-5 text-primary transform transition-transform"
+									id="faq-icon-4"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</div>
+						</button>
+						<div class="hidden px-6 pb-6" id="faq-content-4">
+							<p class="text-gray-600">
+								Yes, we specialize in creating customized solutions tailored to
+								each client's specific needs and requirements. Our team works
+								closely with you to understand your objectives and deliver
+								solutions that perfectly fit your business goals.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -793,174 +1361,101 @@
 		</section>
 
 		<!-- Contact Form Section -->
-		<section id="contact-form" class="py-20 bg-white">
+		<section class="py-16 bg-gray-50">
 			<div class="container mx-auto px-6">
 				<div class="text-center mb-12">
-					<h2 class="text-4xl font-bold gradient-text mb-6">
-						Ready to Get Started?
-					</h2>
-					<p class="text-xl text-gray-600">
-						Tell us about your project and let's create something amazing
-						together
+					<h2 class="text-3xl font-bold text-primary mb-4">Get In Touch</h2>
+					<p class="text-gray-600">
+						Have a project in mind? Contact us for a consultation
 					</p>
 				</div>
-				<div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl shadow-lg">
-					<form class="space-y-6">
+				<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+					<form id="contactForm" class="space-y-6">
 						<div class="grid md:grid-cols-2 gap-6">
 							<div>
 								<label
 									for="name"
 									class="block text-sm font-medium text-gray-700 mb-2"
-									>Full Name *</label
+									>Full Name</label
 								>
 								<input
 									type="text"
 									id="name"
 									name="name"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
 									required
-									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
 								/>
 							</div>
 							<div>
 								<label
 									for="email"
 									class="block text-sm font-medium text-gray-700 mb-2"
-									>Email Address *</label
+									>Email Address</label
 								>
 								<input
 									type="email"
 									id="email"
 									name="email"
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
 									required
-									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
 								/>
-							</div>
-						</div>
-						<div class="grid md:grid-cols-2 gap-6">
-							<div>
-								<label
-									for="phone"
-									class="block text-sm font-medium text-gray-700 mb-2"
-									>Phone Number</label
-								>
-								<input
-									type="tel"
-									id="phone"
-									name="phone"
-									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
-								/>
-							</div>
-							<div>
-								<label
-									for="service"
-									class="block text-sm font-medium text-gray-700 mb-2"
-									>Service Interest *</label
-								>
-								<select
-									id="service"
-									name="service"
-									required
-									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
-								>
-									<option value="">Select a service</option>
-									<option value="construction">
-										Construction & Real Estate
-									</option>
-									<option value="technology">Software & Technology</option>
-									<option value="oil-gas">Oil & Gas</option>
-									<option value="transportation">Transportation</option>
-									<option value="agriculture">Agriculture</option>
-									<option value="training">Corporate Training</option>
-								</select>
 							</div>
 						</div>
 						<div>
 							<label
-								for="project-type"
+								for="service"
 								class="block text-sm font-medium text-gray-700 mb-2"
-								>Project Type</label
+								>Service of Interest</label
+							>
+							<select
+								id="service"
+								name="service"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+								required
+							>
+								<option value="">Select a service</option>
+								<option value="construction">Construction & Real Estate</option>
+								<option value="technology">Software & Technology</option>
+								<option value="oilgas">Oil & Gas</option>
+								<option value="transportation">Transportation</option>
+								<option value="agriculture">Agriculture</option>
+								<option value="training">Corporate Training</option>
+							</select>
+						</div>
+						<div>
+							<label
+								for="subject"
+								class="block text-sm font-medium text-gray-700 mb-2"
+								>Subject</label
 							>
 							<input
 								type="text"
-								id="project-type"
-								name="project-type"
-								placeholder="e.g., Website Development, Office Building, etc."
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
+								id="subject"
+								name="subject"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+								required
 							/>
-						</div>
-						<div>
-							<label
-								for="budget"
-								class="block text-sm font-medium text-gray-700 mb-2"
-								>Estimated Budget</label
-							>
-							<select
-								id="budget"
-								name="budget"
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
-							>
-								<option value="">Select budget range</option>
-								<option value="under-50k">Under ₦5,000,000</option>
-								<option value="50k-100k">₦5,000,000 - ₦10,000,000</option>
-								<option value="100k-500k">₦10,000,000 - ₦50,000,000</option>
-								<option value="500k-1m">₦50,000,000 - ₦100,000,000</option>
-								<option value="over-1m">Over ₦100,000,000</option>
-								<option value="discuss">Prefer to discuss</option>
-							</select>
-						</div>
-						<div>
-							<label
-								for="timeline"
-								class="block text-sm font-medium text-gray-700 mb-2"
-								>Preferred Timeline</label
-							>
-							<select
-								id="timeline"
-								name="timeline"
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
-							>
-								<option value="">Select timeline</option>
-								<option value="urgent">ASAP (Within 1 month)</option>
-								<option value="short">1-3 months</option>
-								<option value="medium">3-6 months</option>
-								<option value="long">6-12 months</option>
-								<option value="extended">12+ months</option>
-								<option value="flexible">Flexible</option>
-							</select>
 						</div>
 						<div>
 							<label
 								for="message"
 								class="block text-sm font-medium text-gray-700 mb-2"
-								>Project Details *</label
+								>Message</label
 							>
 							<textarea
 								id="message"
 								name="message"
-								rows="6"
+								rows="5"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
 								required
-								placeholder="Please describe your project requirements, goals, and any specific details..."
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 transition-colors"
 							></textarea>
 						</div>
-						<div class="flex items-center space-x-2">
-							<input
-								type="checkbox"
-								id="newsletter"
-								name="newsletter"
-								class="w-4 h-4 text-blue-900 border-gray-300 rounded focus:ring-blue-900"
-							/>
-							<label for="newsletter" class="text-sm text-gray-600"
-								>I'd like to receive updates about Helmand & Co services and
-								industry insights</label
-							>
-						</div>
-						<div class="text-center">
+						<div>
 							<button
 								type="submit"
-								class="bg-blue-900 text-white px-12 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all transform hover:scale-105 shadow-lg"
+								class="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-light transition-colors"
 							>
-								Submit Project Inquiry
+								Send Message
 							</button>
 						</div>
 					</form>
@@ -969,7 +1464,7 @@
 		</section>
 
 		<!-- Footer -->
-		<footer class="bg-gray-900 text-white py-16">
+		<footer id="contact" class="bg-gray-900 text-white py-16">
 			<div class="container mx-auto px-6">
 				<div class="grid md:grid-cols-4 gap-8 mb-12">
 					<div class="col-span-2">
@@ -990,7 +1485,7 @@
 							<a
 								href="https://instagram.com/helmandnco"
 								target="_blank"
-								class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 									<path
@@ -1001,7 +1496,7 @@
 							<a
 								href="https://x.com/helmandnco"
 								target="_blank"
-								class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 									<path
@@ -1012,7 +1507,7 @@
 							<a
 								href="https://www.linkedin.com/company/helmand-co-limited/"
 								target="_blank"
-								class="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+								class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-colors"
 							>
 								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 									<path
@@ -1023,48 +1518,41 @@
 						</div>
 					</div>
 					<div>
-						<h3 class="text-lg font-semibold mb-6">Services</h3>
+						<h3 class="text-lg font-semibold mb-6">Quick Links</h3>
 						<ul class="space-y-3">
 							<li>
 								<a
-									href="#services"
+									href="./index.html"
 									class="text-gray-400 hover:text-white transition-colors"
-									>Construction & Real Estate</a
+									>Home</a
+								>
+							</li>
+							<li>
+								<a
+									href="./index.html#about"
+									class="text-gray-400 hover:text-white transition-colors"
+									>About Us</a
 								>
 							</li>
 							<li>
 								<a
 									href="#services"
 									class="text-gray-400 hover:text-white transition-colors"
-									>Software & Technology</a
+									>Services</a
 								>
 							</li>
 							<li>
 								<a
-									href="#services"
+									href="./index.html#team"
 									class="text-gray-400 hover:text-white transition-colors"
-									>Oil & Gas</a
+									>Team</a
 								>
 							</li>
 							<li>
 								<a
-									href="#services"
+									href="#contact"
 									class="text-gray-400 hover:text-white transition-colors"
-									>Transportation</a
-								>
-							</li>
-							<li>
-								<a
-									href="#services"
-									class="text-gray-400 hover:text-white transition-colors"
-									>Agriculture</a
-								>
-							</li>
-							<li>
-								<a
-									href="#services"
-									class="text-gray-400 hover:text-white transition-colors"
-									>Corporate Training</a
+									>Contact</a
 								>
 							</li>
 						</ul>
@@ -1105,7 +1593,7 @@
 							<li>
 								<a
 									href="mailto:info@helmandnco.com"
-									class="flex items-center space-x-3 hover:opacity-70 transition-opacity"
+									class="w-full flex items-center space-x-3 hover:opacity-70 transition-opacity"
 								>
 									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 										<path
@@ -1124,7 +1612,8 @@
 				<div class="border-t border-gray-800 pt-8">
 					<div class="flex flex-col md:flex-row justify-between items-center">
 						<p class="text-gray-400 mb-4 md:mb-0">
-							&copy; 2024 Helmand & Co Limited. All rights reserved.
+							&copy; <span id="currentYear"></span> Helmand & Co Limited. All
+							rights reserved.
 						</p>
 						<div class="flex space-x-6 text-gray-400 text-sm">
 							<a href="#" class="hover:text-white transition-colors"
@@ -1140,6 +1629,6 @@
 			</div>
 		</footer>
 
-		<script src="./script.js"></script>
+		<script src="./services-script.js"></script>
 	</body>
 </html>

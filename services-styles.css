@@ -1,0 +1,236 @@
+/* Base Styles */
+.fade-in {
+	animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.hover-lift {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 20px 25px -5px rgba(19, 53, 81, 0.1);
+}
+
+.gradient-text {
+	background: linear-gradient(135deg, #133551, #1e4766);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Header Styles */
+.mobile-menu-open {
+	max-height: 500px;
+	transition: max-height 0.5s ease-in;
+}
+
+.mobile-menu-closed {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+}
+
+/* Tab Styles */
+.tab-button {
+	position: relative;
+	white-space: nowrap;
+	min-width: fit-content;
+	flex-shrink: 0;
+}
+
+.tab-button.active {
+	border-color: #133551;
+	color: #133551;
+}
+
+.tab-button:not(.active):hover {
+	color: #133551;
+	border-color: #1e4766;
+}
+
+/* Tab Content */
+.tab-content {
+	display: none;
+	animation: fadeIn 0.5s ease-in;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+/* Carousel Styles */
+.carousel-container {
+	position: relative;
+	overflow: hidden;
+	border-radius: 0.5rem;
+}
+
+.carousel-slide {
+	position: relative;
+	display: none;
+	width: 100%;
+}
+
+.carousel-slide.active {
+	display: block;
+}
+
+.carousel-slide img {
+	transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover img {
+	transform: scale(1.05);
+}
+
+/* Carousel Navigation */
+.carousel-prev,
+.carousel-next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(19, 53, 81, 0.8);
+	color: white;
+	border: none;
+	padding: 12px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	z-index: 10;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+	background: rgba(19, 53, 81, 0.95);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+	left: 16px;
+}
+
+.carousel-next {
+	right: 16px;
+}
+
+/* Image placeholder styles for missing images */
+.carousel-slide img[src*="tech-"],
+.carousel-slide img[src*="oil-"],
+.carousel-slide img[src*="transport-"],
+.carousel-slide img[src*="agri-"],
+.carousel-slide img[src*="training-"] {
+	background: linear-gradient(135deg, #133551, #1e4766);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Default background patterns for service images */
+.carousel-slide img[src*="tech-1"] {
+	background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+.carousel-slide img[src*="tech-2"] {
+	background: linear-gradient(135deg, #0891b2, #0e7490);
+}
+
+.carousel-slide img[src*="tech-3"] {
+	background: linear-gradient(135deg, #059669, #047857);
+}
+
+.carousel-slide img[src*="oil-1"] {
+	background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.carousel-slide img[src*="oil-2"] {
+	background: linear-gradient(135deg, #ea580c, #c2410c);
+}
+
+.carousel-slide img[src*="oil-3"] {
+	background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+.carousel-slide img[src*="transport-1"] {
+	background: linear-gradient(135deg, #7c2d12, #92400e);
+}
+
+.carousel-slide img[src*="transport-2"] {
+	background: linear-gradient(135deg, #a21caf, #86198f);
+}
+
+.carousel-slide img[src*="transport-3"] {
+	background: linear-gradient(135deg, #be185d, #9d174d);
+}
+
+.carousel-slide img[src*="agri-1"] {
+	background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.carousel-slide img[src*="agri-2"] {
+	background: linear-gradient(135deg, #65a30d, #4d7c0f);
+}
+
+.carousel-slide img[src*="agri-3"] {
+	background: linear-gradient(135deg, #059669, #047857);
+}
+
+.carousel-slide img[src*="training-1"] {
+	background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.carousel-slide img[src*="training-2"] {
+	background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.carousel-slide img[src*="training-3"] {
+	background: linear-gradient(135deg, #0891b2, #0e7490);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+	.tab-button {
+		font-size: 0.875rem;
+		padding: 0.75rem 1rem;
+	}
+
+	.carousel-prev,
+	.carousel-next {
+		padding: 8px;
+	}
+
+	.carousel-prev {
+		left: 8px;
+	}
+
+	.carousel-next {
+		right: 8px;
+	}
+}
+
+/* Tab navigation responsive */
+@media (max-width: 1024px) {
+	.flex-wrap {
+		justify-content: flex-start;
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		gap: 0;
+	}
+
+	.tab-button {
+		border-bottom: none;
+		border-radius: 0.5rem 0.5rem 0 0;
+		margin-bottom: -2px;
+	}
+}
