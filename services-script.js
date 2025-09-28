@@ -76,14 +76,14 @@ const serviceData = {
                 fallbackGradient: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
             },
             {
-                src: './images/projects/tech/tech-2.jpg',
+                src: './images/projects/tech/tech-3.jpg',
                 alt: 'Mobile Application',
                 title: 'Mobile Apps',
                 description: 'Cross-platform applications',
                 fallbackGradient: 'linear-gradient(135deg, #0891b2, #0e7490)'
             },
             {
-                src: './images/projects/tech/tech-3.jpg',
+                src: './images/projects/tech/tech-2.jpg',
                 alt: 'Smart Home System',
                 title: 'Smart Systems',
                 description: 'IoT and automation',
