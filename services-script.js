@@ -147,24 +147,24 @@ const serviceData = {
         name: 'Agriculture',
         images: [
             {
-                src: './images/projects/agric/agric-1.jpg',
-                alt: 'Modern Farming Techniques',
-                title: 'Modern Farming',
-                description: 'Advanced agricultural techniques',
+                src: './images/projects/agric/agric-2.jpg',
+                alt: 'Our CEO in our rice farms',
+                title: 'Our CEO in our rice farms',
+                description: 'Our CEO inspecting one of our rice farms',
                 fallbackGradient: 'linear-gradient(135deg, #16a34a, #15803d)'
             },
             {
-                src: './images/projects/agric/agric-2.jpg',
-                alt: 'Fertilizer Production Plant',
-                title: 'Fertilizer Plant',
-                description: 'Quality fertilizer production',
+                src: './images/projects/agric/agric-1.jpg',
+                alt: 'Our CEO in our rice farms',
+                title: 'Our CEO in our rice farms',
+                description: 'Our CEO inspecting one of our rice farms',
                 fallbackGradient: 'linear-gradient(135deg, #65a30d, #4d7c0f)'
             },
             {
                 src: './images/projects/agric/agric-3.jpg',
-                alt: 'Agricultural Processing Facility',
-                title: 'Processing Facility',
-                description: 'Agricultural product processing',
+                alt: 'Corn Farms',
+                title: 'Corn Farms',
+                description: 'Corn Farms',
                 fallbackGradient: 'linear-gradient(135deg, #059669, #047857)'
             }
         ]
