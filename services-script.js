@@ -69,21 +69,21 @@ const serviceData = {
         name: 'Software & Technology',
         images: [
             {
-                src: './images/services/tech-1.jpg',
+                src: './images/projects/tech/tech-1.jpg',
                 alt: 'Web Development Project',
                 title: 'Web Development',
                 description: 'Modern responsive websites',
                 fallbackGradient: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
             },
             {
-                src: './images/services/tech-2.jpg',
+                src: './images/projects/tech/tech-2.jpg',
                 alt: 'Mobile Application',
                 title: 'Mobile Apps',
                 description: 'Cross-platform applications',
                 fallbackGradient: 'linear-gradient(135deg, #0891b2, #0e7490)'
             },
             {
-                src: './images/services/tech-3.jpg',
+                src: './images/projects/tech/tech-3.jpg',
                 alt: 'Smart Home System',
                 title: 'Smart Systems',
                 description: 'IoT and automation',
@@ -95,21 +95,21 @@ const serviceData = {
         name: 'Oil & Gas',
         images: [
             {
-                src: './images/services/oil-1.jpg',
+                src: './images/projects/oil/oil-1.jpg',
                 alt: 'Oil Exploration Site',
                 title: 'Exploration',
                 description: 'Advanced geological surveys',
                 fallbackGradient: 'linear-gradient(135deg, #dc2626, #b91c1c)'
             },
             {
-                src: './images/services/oil-2.jpg',
+                src: './images/projects/oil/oil-2.jpg',
                 alt: 'Oil Refining Facility',
                 title: 'Refining',
                 description: 'Product processing facilities',
                 fallbackGradient: 'linear-gradient(135deg, #ea580c, #c2410c)'
             },
             {
-                src: './images/services/oil-3.jpg',
+                src: './images/projects/oil/oil-3.jpg',
                 alt: 'Oil Distribution Network',
                 title: 'Distribution',
                 description: 'Supply chain management',
@@ -121,21 +121,21 @@ const serviceData = {
         name: 'Transportation',
         images: [
             {
-                src: './images/services/transport-1.jpg',
+                src: './images/projects/transport/transport-1.jpg',
                 alt: 'Heavy Cargo Transportation',
                 title: 'Heavy Cargo',
                 description: 'Industrial transportation',
                 fallbackGradient: 'linear-gradient(135deg, #7c2d12, #92400e)'
             },
             {
-                src: './images/services/transport-2.jpg',
+                src: './images/projects/transport/transport-2.jpg',
                 alt: 'Fleet Operations Center',
                 title: 'Fleet Operations',
                 description: 'Modern logistics solutions',
                 fallbackGradient: 'linear-gradient(135deg, #a21caf, #86198f)'
             },
             {
-                src: './images/services/transport-3.jpg',
+                src: './images/projects/transport/transport-3.jpg',
                 alt: 'Warehouse Distribution',
                 title: 'Warehouse',
                 description: 'Storage and distribution',
@@ -147,21 +147,21 @@ const serviceData = {
         name: 'Agriculture',
         images: [
             {
-                src: './images/services/agri-1.jpg',
+                src: './images/projects/agric/agric-1.jpg',
                 alt: 'Modern Farming Techniques',
                 title: 'Modern Farming',
                 description: 'Advanced agricultural techniques',
                 fallbackGradient: 'linear-gradient(135deg, #16a34a, #15803d)'
             },
             {
-                src: './images/services/agri-2.jpg',
+                src: './images/projects/agric/agric-2.jpg',
                 alt: 'Fertilizer Production Plant',
                 title: 'Fertilizer Plant',
                 description: 'Quality fertilizer production',
                 fallbackGradient: 'linear-gradient(135deg, #65a30d, #4d7c0f)'
             },
             {
-                src: './images/services/agri-3.jpg',
+                src: './images/projects/agric/agric-3.jpg',
                 alt: 'Agricultural Processing Facility',
                 title: 'Processing Facility',
                 description: 'Agricultural product processing',
@@ -173,21 +173,21 @@ const serviceData = {
         name: 'Corporate Training',
         images: [
             {
-                src: './images/services/training-1.jpg',
+                src: './images/projects/training/training-1.jpg',
                 alt: 'Leadership Training Session',
                 title: 'Leadership Training',
                 description: 'Executive development programs',
                 fallbackGradient: 'linear-gradient(135deg, #1d4ed8, #1e40af)'
             },
             {
-                src: './images/services/training-2.jpg',
+                src: './images/projects/training/training-2.jpg',
                 alt: 'Technical Workshop',
                 title: 'Technical Workshops',
                 description: 'Hands-on skill development',
                 fallbackGradient: 'linear-gradient(135deg, #7c3aed, #6d28d9)'
             },
             {
-                src: './images/services/training-3.jpg',
+                src: './images/projects/training/training-3.jpg',
                 alt: 'Certification Program',
                 title: 'Certification Programs',
                 description: 'Professional qualifications',
