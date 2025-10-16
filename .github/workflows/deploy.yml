@@ -3,7 +3,7 @@ name: Build and Deploy to cPanel Branch
 on:
   push:
     branches:
-      - main  # Trigger when you push to main
+      - main # Trigger when you push to main
 
 jobs:
   build:
@@ -27,6 +27,6 @@ jobs:
       - name: Deploy build folder to deploy branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: deploy  # branch name where cPanel pulls from
-          folder: build   # if Vite, use 'dist' instead
+          branch: deploy # branch name where cPanel pulls from
+          folder: dist # if Vite, use 'dist' instead
           clean: true
