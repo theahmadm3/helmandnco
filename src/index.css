@@ -12,13 +12,23 @@
 .slide-1 {
 	background-image: url("./assets/images/hero-images/construction.png") !important;
 }
+@media (max-width: 768px) {
+	#slide-1,
+	.slide-1 {
+		background-image: url("./assets/images/hero-images/construction-mobile.jpg") !important;
+	}
+	#slide-2,
+	.slide-2 {
+		background-image: url("./assets/images/hero-images/agric-mobile.jpg") !important;
+	}
+}
 #slide-2,
 .slide-2 {
-	background-image: url("./assets/images/hero-images/corporate.jpeg") !important;
+	background-image: url("./assets/images/hero-images/training-2.jpg") !important;
 }
 #slide-3,
 .slide-3 {
-	background-image: url("./assets/images/hero-images/agric.jpg") !important;
+	background-image: url("./assets/images/hero-images/agric-2.jpg") !important;
 }
 
 #slide-1,
