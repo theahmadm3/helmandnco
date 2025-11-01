@@ -1,6 +1,7 @@
 import greenPlusLogo from '../assets/images/partners/greenplus.png';
 import marblengroveLogo from '../assets/images/partners/marblengrove.png';
-import nafLogo from '../assets/images/partners/Naf.png';
+// import nafLogo from '../assets/images/partners/Naf.png';
+import tahlilLogo from '../assets/images/partners/tahlil.png';
 
 const ClientLogosSection = () => {
     return (
@@ -14,7 +15,8 @@ const ClientLogosSection = () => {
                 <div className="w-full px-5 md:px-2 inline-flex justify-center items-center overflow-x-auto gap-x-4">
                     <img src={greenPlusLogo} alt="Green Plus Partner" className="w-36 h-auto client-logo" />
                     <img src={marblengroveLogo} alt="Marble Grove Partner" className="w-64 h-auto client-logo" />
-                    <img src={nafLogo} className="w-32 h-auto client-logo" />
+                    {/* <img src={nafLogo} className="w-32 h-auto client-logo" /> */}
+                    <img src={tahlilLogo} className="w-32 h-auto client-logo" />
                 </div>
             </div>
         </section>
